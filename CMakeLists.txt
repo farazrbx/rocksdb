@@ -620,7 +620,10 @@ if(USE_FOLLY)
   set(FOLLY_LIBS Folly::folly)
   set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,--copy-dt-needed-entries")
 endif()
-find_package(Threads REQUIRED)
+
+if(NOT RBX_PLATFORM_PLAYSTATION)
+  find_package(Threads REQUIRED)
+endif()
 
 # Main library source code
 
