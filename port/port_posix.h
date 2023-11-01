@@ -48,6 +48,7 @@
 #include <sys/endian.h>
 #include <sys/types.h>
 #define PLATFORM_IS_LITTLE_ENDIAN (_BYTE_ORDER == _LITTLE_ENDIAN)
+#elif defined(__ORBIS__) || defined(__PROSPERO__) // PlayStation 4 and 5
 #else
 #include <endian.h>
 #endif
