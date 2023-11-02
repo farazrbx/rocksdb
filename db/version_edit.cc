@@ -146,7 +146,7 @@ bool VersionEdit::EncodeTo(std::string* dst,
     PutVarint32(dst, kNewFile4);
     PutVarint32Varint64(dst, new_files_[i].first /* level */, f.fd.GetNumber());
     PutVarint64(dst, f.fd.GetFileSize());
-    EncodeFileBoundaries(dst, f, ts_sz.value());
+    EncodeFileBoundaries(dst, f, *ts_sz);
     PutVarint64Varint64(dst, f.fd.smallest_seqno, f.fd.largest_seqno);
     // Customized fields' format:
     // +-----------------------------+
