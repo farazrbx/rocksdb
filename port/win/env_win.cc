@@ -43,6 +43,8 @@
 #undef DeleteFile
 #undef LoadLibrary
 
+#include <winbase.h>
+
 // #if defined(Q_CC_MINGW) && WINVER < 0x0602 && _WIN32_WINNT < _WIN32_WINNT_WIN8 //  Windows 8 onwards
 typedef struct _FILE_ID_INFO {
   ULONGLONG VolumeSerialNumber;
