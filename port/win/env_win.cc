@@ -52,6 +52,7 @@ typedef struct _FILE_ID_INFO {
 } FILE_ID_INFO, *PFILE_ID_INFO;
 // #endif // if defined(Q_CC_MINGW) && WINVER < 0x0602 && _WIN32_WINNT < _WIN32_WINNT_WIN8
 
+/*
 typedef enum _FILE_INFO_BY_HANDLE_CLASS {
   FileBasicInfo,
   FileStandardInfo,
@@ -80,6 +81,7 @@ typedef enum _FILE_INFO_BY_HANDLE_CLASS {
   FileNormalizedNameInfo,
   MaximumFileInfoByHandleClass
 } FILE_INFO_BY_HANDLE_CLASS, *PFILE_INFO_BY_HANDLE_CLASS;
+*/
 
 namespace ROCKSDB_NAMESPACE {
 
