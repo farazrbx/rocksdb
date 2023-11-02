@@ -24,7 +24,7 @@
 #define __declspec(S)
 
 #undef PLATFORM_IS_LITTLE_ENDIAN
-#if defined(OS_MACOSX)
+#if defined(OS_MACOSX) || defined(__APPLE__)
 #include <machine/endian.h>
 #if defined(__DARWIN_LITTLE_ENDIAN) && defined(__DARWIN_BYTE_ORDER)
 #define PLATFORM_IS_LITTLE_ENDIAN \
@@ -49,6 +49,7 @@
 #include <sys/types.h>
 #define PLATFORM_IS_LITTLE_ENDIAN (_BYTE_ORDER == _LITTLE_ENDIAN)
 #elif defined(__ORBIS__) || defined(__PROSPERO__) // PlayStation 4 and 5
+// PlayStation is little-endian
 #else
 #include <endian.h>
 #endif
