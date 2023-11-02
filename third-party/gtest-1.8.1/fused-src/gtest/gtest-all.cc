@@ -5085,7 +5085,7 @@ static bool PortableLocaltime(time_t seconds, struct tm* out) {
   *out = *tm_ptr;
   return true;
 #else
-  return localtime_r(&seconds, out) != NULL;
+  return localtime_s(&seconds, out) != NULL;
 #endif
 }
 

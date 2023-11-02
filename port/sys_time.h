@@ -53,7 +53,11 @@ inline void GetTimeOfDay(TimeVal* tv, struct timezone* tz) {
 }
 
 inline struct tm* LocalTimeR(const time_t* timep, struct tm* result) {
+#if defined(__ORBIS__) || defined(__PROSPERO__) // PlayStation 4 and 5
+  return localtime_s(timep, result);
+#else
   return localtime_r(timep, result);
+#endif
 }
 
 }  // namespace port
