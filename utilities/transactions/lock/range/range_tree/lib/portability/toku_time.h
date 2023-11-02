@@ -120,6 +120,12 @@ double tokutime_to_seconds(tokutime_t)  __attribute__((__visibility__("default")
 
 #endif
 
+static inline uint64_t toku_current_time_microsec(void) {
+  struct timeval t;
+  gettimeofday(&t, NULL);
+  return t.tv_sec * (1UL * 1000 * 1000) + t.tv_usec;
+}
+
 // Get the value of tokutime for right now.  We want this to be fast, so we
 // expose the implementation as RDTSC.
 static inline tokutime_t toku_time_now(void) {
@@ -159,14 +165,9 @@ static inline tokutime_t toku_time_now(void) {
   asm volatile ("rdtime.d\t%0,$r0" : "=r" (result));
   return result;
 #else
-#error No timer implementation for this platform
+  // #error No timer implementation for this platform
+  return toku_current_time_microsec();
 #endif
-}
-
-static inline uint64_t toku_current_time_microsec(void) {
-  struct timeval t;
-  gettimeofday(&t, NULL);
-  return t.tv_sec * (1UL * 1000 * 1000) + t.tv_usec;
 }
 
 #if 0
