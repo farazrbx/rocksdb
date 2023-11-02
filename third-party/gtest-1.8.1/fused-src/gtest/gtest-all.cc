@@ -5084,8 +5084,10 @@ static bool PortableLocaltime(time_t seconds, struct tm* out) {
     return false;
   *out = *tm_ptr;
   return true;
-#else
+#elif defined(__ORBIS__) || defined(__PROSPERO__) // PlayStation 4 and 5
   return localtime_s(&seconds, out) != NULL;
+#else
+  return localtime_r(&seconds, out) != NULL;
 #endif
 }
 
