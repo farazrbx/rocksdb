@@ -258,7 +258,7 @@ if(CMAKE_SYSTEM_PROCESSOR MATCHES "loongarch64")
   endif(HAS_LOONGARCH64)
 endif(CMAKE_SYSTEM_PROCESSOR MATCHES "loongarch64")
 
-set(PORTABLE 0 CACHE STRING "Minimum CPU arch to support, or 0 = current CPU, 1 = baseline CPU")
+set(PORTABLE 1 CACHE STRING "Minimum CPU arch to support, or 0 = current CPU, 1 = baseline CPU")
 if(PORTABLE MATCHES "1|ON|YES|TRUE|Y")
   # Usually nothing to do; compiler default is typically the most general
   if(NOT MSVC)
