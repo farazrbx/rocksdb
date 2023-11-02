@@ -212,6 +212,7 @@ extern void InitOnce(OnceType* once, void (*initializer)());
 #define ALIGN_AS(n) alignas(n)
 #endif
 #endif
+#endif
 
 static_assert((CACHE_LINE_SIZE & (CACHE_LINE_SIZE - 1)) == 0,
               "Cache line size must be a power of 2 number of bytes");
