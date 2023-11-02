@@ -244,7 +244,11 @@ inline void cacheline_aligned_free(void* memblock) {
 extern const size_t kPageSize;
 
 // Part of C++11
+#if defined(__ORBIS__) || defined(__PROSPERO__) // PlayStation 4 and 5
+#define ALIGN_AS(n) /*empty*/
+#else
 #define ALIGN_AS(n) alignas(n)
+#endif
 
 static inline void AsmVolatilePause() {
 #if defined(_M_IX86) || defined(_M_X64) || defined(_M_ARM64) || defined(_M_ARM)
