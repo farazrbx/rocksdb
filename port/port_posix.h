@@ -207,7 +207,7 @@ extern void InitOnce(OnceType* once, void (*initializer)());
 #define CACHE_LINE_SIZE 64U
 #endif
 #if defined(__ORBIS__) || defined(__PROSPERO__) // PlayStation 4 and 5
-#define ALIGN_AS(n) /*empty*/
+#define ALIGN_AS(n) __attribute__ ((aligned(n)))
 #else
 #define ALIGN_AS(n) alignas(n)
 #endif
@@ -215,7 +215,7 @@ extern void InitOnce(OnceType* once, void (*initializer)());
 #endif
 
 #ifndef ALIGN_AS
-#define ALIGN_AS(n) /*empty*/
+#define ALIGN_AS(n) alignas(n)
 #endif
 
 static_assert((CACHE_LINE_SIZE & (CACHE_LINE_SIZE - 1)) == 0,

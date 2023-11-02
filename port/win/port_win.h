@@ -245,7 +245,7 @@ extern const size_t kPageSize;
 
 // Part of C++11
 #if defined(__ORBIS__) || defined(__PROSPERO__) // PlayStation 4 and 5
-#define ALIGN_AS(n) /*empty*/
+#define ALIGN_AS(n) __attribute__ ((aligned(n)))
 #else
 #define ALIGN_AS(n) alignas(n)
 #endif

@@ -496,7 +496,7 @@ Status SstFileDumper::ReadSequential(bool print_kv, uint64_t read_num,
     }
 
     // If end marker was specified, we stop before it
-    if (to.has_value() && ucmp->Compare(ikey.user_key, to.value()) >= 0) {
+    if (to.has_value() && ucmp->Compare(ikey.user_key, *to) >= 0) {
       break;
     }
 
