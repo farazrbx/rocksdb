@@ -206,6 +206,9 @@ extern void InitOnce(OnceType* once, void (*initializer)());
 #else
 #define CACHE_LINE_SIZE 64U
 #endif
+#if defined(__ORBIS__) || defined(__PROSPERO__) // PlayStation 4 and 5
+#define ALIGN_AS(n) /*empty*/
+#else
 #define ALIGN_AS(n) alignas(n)
 #endif
 #endif
