@@ -83,6 +83,35 @@ typedef enum _FILE_INFO_BY_HANDLE_CLASS {
 } FILE_INFO_BY_HANDLE_CLASS, *PFILE_INFO_BY_HANDLE_CLASS;
 */
 
+enum FILE_INFO_BY_HANDLE_CLASS_2 {
+  FileBasicInfo,
+  FileStandardInfo,
+  FileNameInfo,
+  FileRenameInfo,
+  FileDispositionInfo,
+  FileAllocationInfo,
+  FileEndOfFileInfo,
+  FileStreamInfo,
+  FileCompressionInfo,
+  FileAttributeTagInfo,
+  FileIdBothDirectoryInfo,
+  FileIdBothDirectoryRestartInfo,
+  FileIoPriorityHintInfo,
+  FileRemoteProtocolInfo,
+  FileFullDirectoryInfo,
+  FileFullDirectoryRestartInfo,
+  FileStorageInfo,
+  FileAlignmentInfo,
+  FileIdInfo,
+  FileIdExtdDirectoryInfo,
+  FileIdExtdDirectoryRestartInfo,
+  FileDispositionInfoEx,
+  FileRenameInfoEx,
+  FileCaseSensitiveInfo,
+  FileNormalizedNameInfo,
+  MaximumFileInfoByHandleClass
+};
+
 namespace ROCKSDB_NAMESPACE {
 
 ThreadStatusUpdater* CreateThreadStatusUpdater() {
